@@ -9,7 +9,16 @@ For the sway-wm config file you could download the content of the folder `sway/.
 
 ## Examples
 
+### Sway Desktop
 ![Desktop_screenshot](screenshots/screenshot_2024-07-29T12%3A11%3A45.png)
 
 
 ![Desktop screenshot 2](screenshots/screenshot_2024-07-29T12%3A12%3A57.png)
+
+
+### Waybar
+![Waybar](screenshots/screenshot_2024-07-29T13:40:28.png)
+
+### Rofi 
+![Rofi](screenshots/screenshot_2024-07-29T13:40:53.png)
+
