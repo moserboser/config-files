@@ -1,0 +1,16 @@
+import = [
+        "~/.config/alacritty/themes/themes/nord.toml"
+]
+
+[window]
+padding.x = 5
+padding.y = 5
+opacity = 0.7
+blur = true
+
+option_as_alt = "both"
+
+[font]
+normal.family = "Agave Nerd Font"
+
+size = 13
