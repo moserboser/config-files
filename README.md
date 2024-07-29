@@ -5,7 +5,7 @@ These files are not optimized for other users! Some paths will not work on your 
 
 
 The folder is set up to be used with [stow](https://github.com/aspiers/stow). If you want to apply the config files to your own machine it is however recommended to copy them manually.
-For the sway-wm config file you download the content of the folder `sway/.config/sway`. And place them in `~/.config/sway/`. 
+For the sway-wm config file you could download the content of the folder `sway/.config/sway`. And place it in `~/.config/sway/`. 
 
 ## Examples
 
