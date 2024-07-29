@@ -4,8 +4,8 @@
 These files are not optimized for other users! Some paths will not work on your system. GTK theme (Arc-Dark), Icon Theme (Colloid-yellow-nord-dark), and qt theme (KvArcDark) have to be installed manually. The used Font is [Agave Nerd Font](https://www.nerdfonts.com/font-downloads) and also to be instaslled manually. 
 
 
-The folder is set up to be used with [stow](https://github.com/aspiers/stow). If you want to apply the config files to your own machine it is however recommended to copy them manually.
-For the sway-wm config file you could download the content of the folder `sway/.config/sway`. And place it in `~/.config/sway/`. 
+The folder is set up to be used with [stow](https://github.com/aspiers/stow). If you want to apply the config files to your own machine it is recommended to copy them manually.
+For the sway-wm config file you could download the content of the folder `sway/.config/sway` And place it in `~/.config/sway/`. 
 
 ## Examples
 
