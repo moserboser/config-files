@@ -7,4 +7,5 @@ For the sway-wm config file you download the content of the folder `sway/.config
 
 ## Examples
 
-![Desktop_screenshot]([https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true](https://github.com/moserboser/config-files/blob/master/screenshots/screenshot_2024-07-29T12%3A11%3A45.png))
+![Desktop_screenshot](screenshots/screenshot_2024-07-29T12%3A11%3A45.png)
+
