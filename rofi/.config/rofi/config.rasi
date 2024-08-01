@@ -159,7 +159,7 @@ configuration {
 configuration {
     font: "Agave Nerd Font 14";
     line-margin: 12;
-    show-icons: false;
+    show-icons: true;
 }
 
 @theme "~/.config/rofi/nord.rasi"
