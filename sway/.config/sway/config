@@ -58,6 +58,15 @@ output * bg $HOME/Pictures/ign_chomusuke.png fill
 #       │ grp:ctrl_space_toggle       Ctrl+Space
 # get the available inputs with: swaymsg -t get_inputs
 
+# touchpad configureation
+input "type:touchpad" {
+    dwt enabled
+    dwtp enabled
+    tap enabled
+    tap_button_map lrm
+  }
+
+
 
 # Us international layout for split keyboard
 #input type:keyboard {
