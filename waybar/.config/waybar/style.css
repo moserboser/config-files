@@ -3,10 +3,9 @@
     border-radius: 0px;
     font-family: "Agave Nerd Font", "Font Awesome 6 Free",
         "Font Awesome 6 Brands", monospace;
-    font-size: 15px;
+    font-size: 17px;
     min-height: 0;
 }
-
 window#waybar {
     background-color: rgba(43, 48, 59, 0.9);
     border-bottom: 0px solid rgba(100, 114, 125, 0.5);
@@ -129,7 +128,7 @@ button:hover {
 
 #battery {
     background-color: #81a1c1;
-    color: #2e3440;
+    color: #000000;
 }
 
 #battery.charging,
@@ -195,6 +194,7 @@ label:focus {
 
 #backlight {
     background-color: #90b1b1;
+    color: #000000;
 }
 
 #network {
@@ -338,4 +338,8 @@ label:focus {
 
 #privacy-item.audio-out {
     background-color: #0069d4;
+}
+
+
+#custom-notification {
 }
