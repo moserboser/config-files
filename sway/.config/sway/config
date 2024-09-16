@@ -27,7 +27,7 @@ set $rofi_cmd rofi \
 set $menu $rofi_cmd -show combi -combi-modes drun#run -modes combi
 
 #displaying open applications with rofi
-bindsym $mod+Tab exec rofi -show
+bindsym $mod+Tab exec --no-startup-id ~/.config/rofi/launchers/type-1/launcher.sh 
 
 
 ### Output configuration
@@ -128,7 +128,7 @@ exec gammastep-indicator
     bindsym $mod+Shift+q kill
 
     # Start your launcher
-    bindsym $mod+d exec $menu
+    bindsym $mod+d exec  --no-startup-id ~/.config/rofi/launchers/type-1/launcher.sh 
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
