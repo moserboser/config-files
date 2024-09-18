@@ -34,7 +34,8 @@ bindsym $mod+Tab exec rofi -show
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 # Requires: desktop-backgrounds-compat, swaybg
-output * bg $HOME/Pictures/backgrounds/ign_unsplash46.png fill
+output * bg $HOME/Pictures/wallpapers/ign_unsplash46.png fill
+exec wal -i $HOME/Pictures/wallpapers/iign_unsplash46.png
 #
 # Example configuration:
 #
@@ -144,13 +145,7 @@ exec gammastep-indicator
 
 
 # Exit menu
-bindsym $mod+Shift+e exec swaynag -f "Terminus" \
--m "Exit sway? This will end your current Wayland session." \
--B "Exit now" "swaymsg exit" \
--B "Suspend" "systemctl suspend && pkill swaynag" \
--B "Reboot" "systemctl reboot" \
--B "Power off" "systemctl poweroff" \
-
+bindsym $mod+Shift+e exec wlogout 
 #
 # Moving around:
 #
@@ -332,14 +327,13 @@ exec_always {
 
 font pango:HackNerdFont 10
 smart_gaps off 
-gaps inner 4
+gaps inner 4 
 default_border pixel
 
 
-# Define colors variables:
-#
+
 #define color palette
-#
+#just in case they are needed sometime
 
 #nord polar night colors
 set $nord_dark #292e39
@@ -355,41 +349,22 @@ set $aurora_yellow	#ebcb8b
 set $aurora_green	#a3be8c
 set $aurora_purple	#b48ead
 
-# other colors
-set $rosewater #f5e0dc
-set $flamingo  #f2cdcd
-set $pink      #f5c2e7
-set $mauve     #cba6f7
-set $red       #f38ba8
-set $maroon    #eba0ac
-set $peach     #fab387
-set $yellow    #f9e2af
-set $green     #a6e3a1
-set $teal      #94e2d5
-set $sky       #89dceb
-set $sapphire  #74c7ec
-set $blue      #89b4fa
-set $lavender  #b4befe
-set $text      #cdd6f4
-set $subtext1  #bac2de
-set $subtext0  #a6adc8
-set $overlay2  #9399b2
-set $overlay1  #7f849c
-set $overlay0  #6c7086
-set $surface2  #585b70
-set $surface1  #45475a
-set $surface0  #313244
-set $base      #1e1e2e
-set $mantle    #181825
-set $crust     #11111b
+# include custom wall colours 
 
-# <colorclass> <border> <background> <text> <indicator> <child_border> (child border = right border)
-client.focused  #B39B6B #B39B6B #000000 #B39B6B #B39B6B
-client.focused_inactive $nord_dark $base $text $overlay0 $nord_dark
-client.unfocused $nord_dark $nord_dark $text $nord_dark $nord_dark
-client.urgent $aurora_red $base $aurora_red $overlay0 $peach
-client.placeholder $overlay0 $base $text $overlay0 $overlay0
-client.background $base
+include "$HOME/.cache/wal/colors-sway"
+#| border | background | text | indicator | child_border
+client.focused $color7 $color7 $color0 $color7 $color7 
+client.focused_inactive $color0 #5f676a #ffffff #484e50 $color0 
+client.focused_tab_title $color0 #5f676a #ffffff  
+client.unfocused $color0 #222222 #888888 #292d2e $color0 
+client.urgent #2f343a #900000 #ffffff #900000 #900000
+client.placeholder #000000 #0c0c0c #ffffff #000000 #0c0c0c
+
+
+
+
+# set bg based on wall colors 
+
 
 # -- FEDORA specific configuration (files loading below) -- # (delete this if you are not using the fedora sway spink)
 
