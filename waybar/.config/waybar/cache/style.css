@@ -1,0 +1,8 @@
+/* -----------------------------------------------------
+ * Import Pywal colors 
+ * ----------------------------------------------------- */
+
+/* bellow the theme from the folder styles can be specified */ 
+
+@import '~/.config/waybar/styles/nordic.css';
+

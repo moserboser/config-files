@@ -34,10 +34,9 @@ bindsym $mod+Tab exec --no-startup-id ~/.config/rofi/launchers/type-1/launcher.s
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 # Requires: desktop-backgrounds-compat, swaybg
-output * bg $HOME/Pictures/wallpapers/ign_unsplash46.png fill
-exec wal -i $HOME/Pictures/wallpapers/iign_unsplash46.png
-#
-# Example configuration:
+output * bg $HOME/Pictures/backgrounds/nordic_wallpapers/ign_unsplash46.png fill
+exec wal -i $HOME/Pictures/backgrounds/nordic_wallpapers/ign_unsplash46.png
+# Example configuration
 #
 #   output HDMI-A-1 resolution 1920x1080 position 1920,0
 #
