@@ -27,17 +27,17 @@ set $rofi_cmd rofi \
 set $menu $rofi_cmd -show combi -combi-modes drun#run -modes combi
 
 #displaying open applications with rofi
-bindsym $mod+Tab exec rofi -show
+bindsym $mod+Tab exec --no-startup-id ~/.config/rofi/launchers/type-1/launcher.sh 
 
 
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 # Requires: desktop-backgrounds-compat, swaybg
-output * bg $HOME/Pictures/backgrounds/ign_unsplash46.png fill
-exec wal -i $HOME/Pictures/backgrounds/iign_unsplash46.png
 #
-# Example configuration:
+output * bg $HOME/Pictures/backgrounds/nordic_wallpapers/ign_unsplash46.png fill
+exec wal -i $HOME/Pictures/backgrounds/nordic_wallpapers/ign_unsplash46.png
+# Example configuration
 #
 #   output HDMI-A-1 resolution 1920x1080 position 1920,0
 #
@@ -128,7 +128,7 @@ exec gammastep-indicator
     bindsym $mod+Shift+q kill
 
     # Start your launcher
-    bindsym $mod+d exec $menu
+    bindsym $mod+d exec  --no-startup-id ~/.config/rofi/launchers/type-1/launcher.sh 
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
