@@ -34,8 +34,8 @@ bindsym $mod+Tab exec rofi -show
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 # Requires: desktop-backgrounds-compat, swaybg
-output * bg $HOME/Pictures/wallpapers/ign_unsplash46.png fill
-exec wal -i $HOME/Pictures/wallpapers/iign_unsplash46.png
+output * bg $HOME/Pictures/backgrounds/ign_unsplash46.png fill
+exec wal -i $HOME/Pictures/backgrounds/iign_unsplash46.png
 #
 # Example configuration:
 #
