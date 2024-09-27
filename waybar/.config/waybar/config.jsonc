@@ -1,12 +1,121 @@
 {
-    "spacing": 0,
-
-    "modules-left": [
-        "sway/workspaces",
-        "sway/mode",
-        "sway/scratchpad",
-        "sway/window"
-    ],
+    "layer": "top",
+    "height": 25,
+    "modules-left": ["sway/workspaces", "sway/mode"],
+    "modules-center": ["sway/window"],
+    "modules-right": ["custom/vpn","idle_inhibitor", "pulseaudio", "network", "backlight", "battery", "clock", "custom/notification" ],
+    "sway/workspaces": {
+        "disable-scroll": true,
+        "all-outputs": true,
+        "format": "{icon}",
+        "format-icons": {
+            "1": "1 ",
+            "2": "2 ",
+            "3": "3 ",
+            "4": "4",
+            "5": "5 ",
+            "6": "6 ",
+            "7": "7",
+            "8": "8",
+            "9": "9",
+            "10": " "
+        }
+    },
+    "sway/mode": {
+        "format": "<span style=\"italic\">{}</span>"
+    },
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "",
+            "deactivated": ""
+        }
+    },
+    "clock": {
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "format-alt": "{:%Y-%m-%d}"
+    },
+    "backlight": {
+        "format": "{percent}% {icon}",
+        "format-icons": ["", ""]
+    },
+    "battery": {
+        "bat": "BAT0",
+        "states": {
+            // "good": 95,
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{capacity}% {icon}",
+        "format-charging": "{capacity}% ",
+        "format-plugged": "{capacity}% ",
+        "format-alt": "{time} {icon}",
+        // "format-good": "",
+        "format-full": "100% ",
+        "format-icons": ["", "", "", "", ""]
+    },
+    "network": {
+    	"format": "{ifname}",
+	    "format-ethernet": "{ifname} ",
+        "format-wifi": "{essid} ",
+        "format-linked": "{ifname} (No IP) ",
+       	"format-disconnected": "Disconnected ⚠",
+        "format-alt": "{ifname}: {ipaddr}/{cidr}",
+        "tooltip-format": "{ifname}: {ipaddr}/{cidr}"
+    },
+    "pulseaudio": {
+        "scroll-step": 0,
+        "format": "{icon} {volume}    {format_source}",
+        "format-bluetooth": "{volume}% {icon} {format_source}",
+        "format-bluetooth-muted": " {icon} {format_source}",
+        "format-muted": " {format_source}",
+        "format-source": " {volume}",
+        "format-source-muted": "",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        },
+        "on-click": "pavucontrol"
+    },
+  
+    "custom/notification": {
+      "tooltip": false,
+        "format": "{icon}",
+           "format-icons": {
+                     "notification": "󰎟",
+                     "none": "󰎟",
+                     "dnd-notification": "󰎟",
+                     "dnd-none": "󰎟",
+                     "inhibited-notification": "󰎟",
+                     "inhibited-none": "󰎟",
+                     "dnd-inhibited-notification": "󰎟",
+                     "dnd-inhibited-none": "󰎟"
+                },
+                "return-type": "json",
+                "exec-if": "which swaync-client",
+                "exec": "swaync-client -swb",
+                "on-click": "swaync-client -t -sw",
+                "on-click-right": "swaync-client -d -sw",
+                "escape": true
+    }
+     }
+}  
+   
+   
+{  
+     "spacing": 2,
+   
+     "modules-left": [
+         "sway/workspaces",
+         "sway/mode",
+         "sway/scratchpad",
+         "sway/window"
+     ],
     "modules-right": [
         "cpu",
         "memory",
@@ -15,10 +124,10 @@
         "battery",
         "network",
         "clock",
-        "custom/power",
+      //"custom/power",
       //"idle_inhibitor",
-        "custom/notification",
         "tray",
+        "custom/notification",
     ],
 
     "custom/power": {
