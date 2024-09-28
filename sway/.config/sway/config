@@ -154,8 +154,10 @@ exec gammastep-indicator
 # Exit menu
 bindsym $mod+Shift+e exec swaynag -m 'What would you like to do?' \
 -b 'Suspend' 'systemctl suspend' \
+-b 'Exit' 'swaymsg exit' \
 -b 'Reboot' 'systemctl reboot' \
--b 'Power Off' 'systemctl poweroff'  \
+-b 'Power Off' 'systemctl poweroff'\
+
 #
 # Moving around:
 #
