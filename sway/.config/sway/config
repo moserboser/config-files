@@ -339,8 +339,9 @@ exec_always {
 
 font pango:HackNerdFont 10
 smart_gaps off 
-gaps inner 4 
-default_border pixel
+gaps inner 8 
+gaps outer 8 
+default_border pixel 3 
 
 
 
