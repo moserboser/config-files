@@ -79,6 +79,7 @@ window#waybar.hidden {
 #clock {
     color: #000000;
     background-color: @workspacesbackground1;
+    border-radius: 0px 5px 5px 0px;
 }
 
 #battery {
@@ -156,6 +157,16 @@ label:focus {
 
 #custom-notification {
     color: #000000;
-    background-color: @workspacesbackground1;
+    background-color: @color10;
     min-width: 24px;
+    border-radius: 5px 0px 0px 5px;
+}
+
+#tray {
+  color: #ffffff;
+  background-color: #3c3836;
+  min-width: 30px;
+  padding: 0 5px;
+  color: #ffffff;
+  border-radius: 5px 5px 5px 5px;
 }
