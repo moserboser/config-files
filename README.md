@@ -11,7 +11,7 @@ The folder is set up to be used with [stow](https://github.com/aspiers/stow). If
 For the sway-wm config file you could download the content of the folder `sway/.config/sway/` And place it in `~/.config/sway/`. Alternatively, you can clone the config folders into your stow directory and run stow. 
 
 ## Examples
-
+![desktop](screenhots/screenshot_2024-10-01T15:02:06.png)
 ### Waybar
 
 
