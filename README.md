@@ -12,6 +12,7 @@ For the sway-wm config file you could download the content of the folder `sway/.
 
 ## Examples
 ![desktop](screenhots/screenshot_2024-10-01T15:02:06.png)
+![desktop](screenhots/screenshot_2024-10-01T15:51:08.png)
 ### Waybar
 
 
