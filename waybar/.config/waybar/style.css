@@ -79,7 +79,7 @@ window#waybar.hidden {
 #clock {
     color: #000000;
     background-color: @workspacesbackground1;
-    border-radius: 0px 5px 5px 0px;
+    border-radius: 0px 0px 0px 0px;
 }
 
 #battery {
@@ -89,7 +89,7 @@ window#waybar.hidden {
 
 #battery.charging {
     color: #000000;
-    background-color: @color15;
+    background-color: @workspacesbackground1;
 }
 
 @keyframes blink {
@@ -100,7 +100,7 @@ window#waybar.hidden {
 }
 
 #battery.critical:not(.charging) {
-    background-color: #282828;
+    background-color: @workspacesbackground1;
     color: #282828;
     animation-name: blink;
     animation-duration: 1s;
@@ -159,7 +159,7 @@ label:focus {
     color: #000000;
     background-color: @color10;
     min-width: 24px;
-    border-radius: 5px 0px 0px 5px;
+    border-radius: 0px 0px 0px 0px;
 }
 
 #tray {
