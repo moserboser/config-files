@@ -187,7 +187,6 @@ bindsym $mod+Shift+e exec swaynag -m 'What would you like to do?' \
 
     #screenshot shortcut - other settings in /config.d/60-bindings-screenshot.conf 
    bindsym Print exec $HOME/.config/sway/scripts/sway-interactive-screenshot/sway-interactive-screenshot
-
 # Workspaces:
 #
 
