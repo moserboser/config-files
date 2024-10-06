@@ -41,7 +41,7 @@ This is a small Python script written by Moverest. The script is already include
 
 ### [Rofi templates](https://github.com/adi1090x/rofi.git)
 
-A huge collection of rofi templates. A huge thanks to adi1090x. The templates are already included in the `rofi/` folder. Please refeer to the rofi template repo to change to a desired template. The template used in this config has been changed minimally. It is inspired by type1 Style2.  
+A collection of rofi templates. A huge thanks to adi1090x. The templates are already included in the `rofi/` folder. Please refeer to the rofi template repo to change to a desired template. The template used in this config has been changed minimally. It is inspired by type1 Style2.  
 
 ## Fedora-Sway spin specific configs
 
