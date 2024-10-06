@@ -49,14 +49,11 @@ The fedora Sway spin includes some configurations that are made by default and l
 
 ## How to use
 The folder is set up to be used with [stow](https://github.com/aspiers/stow). If you want to apply the config files to your own machine it is recommended to copy them manually.
-For the sway-wm config file you could download the content of the folder `sway/.config/sway/` And place it in `~/.config/sway/`. Alternatively, you can clone the config folders into your stow directory and run stow. 
+For the sway-wm config file you could download the content of the folder `sway/.config/sway/` And place it in `~/.config/sway/`. Alternatively, you can clone the the repo and use stow with the desired folders. This will automatically create a simlink with the config folders, so you do not have to copy any files manually. 
 
 ## Examples
 ![desktop](screenhots/screenshot_2024-10-01T15:02:06.png)
 ![desktop](screenhots/screenshot_2024-10-01T15:51:08.png)
-### Waybar
 
-
-### Rofi 
 
 
