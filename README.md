@@ -1,7 +1,7 @@
 # Configuration files fedora-sway spin
 
 ## **Important**
-These files are not optimized for other users! The wallpaper paths have to be adjusted. Additionally, the configuration will not work without some dependencies (see bellow). GTK theme, Icon Theme, and qt theme have to be installed manually. Please refer to These two links [GTK Theme](https://github.com/swaywm/sway/wiki/GTK-3-settings-on-Wayland) [Arch Wiki on Theming GTK and qt](https://wiki.archlinux.org/title/Uniform_look_for_Qt_and_GTK_applications)  The used Font is [Agave Nerd Font](https://www.nerdfonts.com/font-downloads). 
+These files are not optimized for other users! The wallpaper paths have to be adjusted. Additionally, the configuration will not work without pywal (see bellow). GTK theme, Icon Theme, and qt theme have to be installed manually. Please refer to These two links [GTK Theme](https://github.com/swaywm/sway/wiki/GTK-3-settings-on-Wayland) [Arch Wiki on Theming GTK and qt](https://wiki.archlinux.org/title/Uniform_look_for_Qt_and_GTK_applications)  The used Font is [Agave Nerd Font](https://www.nerdfonts.com/font-downloads). 
 
 ----- 
 
