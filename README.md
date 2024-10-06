@@ -54,6 +54,6 @@ For the sway-wm config file you could download the content of the folder `sway/.
 ## Examples
 ![desktop](screenhots/screenshot_2024-10-01T15:02:06.png)
 ![desktop](screenhots/screenshot_2024-10-01T15:51:08.png)
-![swaync, rofi](screenshots/screenshot_2024-10-06T14:00:54.png)
+![desktop](screenshots/screenshot_2024-10-06T14:00:54.png)
 
 
