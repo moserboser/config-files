@@ -11,11 +11,6 @@ These files are not optimized for other users! The wallpaper paths have to be ad
 The colors of the waybar as well as sway windows change automatically based on the wallpaper. The walpaper has to be set in the sway config file. Additionally, the path to the same image has to be sepcified for pywal. Just replace the path for both with the desired image path. 
 For pywal to work with waybar, you have to specify a custom pywal template for the wayar colors: Create a file with the following content in `~/.config/wal/templates/`: 
 
-### [Sway-interactive-screenshot](https://github.com/moverest/sway-interactive-screenshot.git) 
-
-This is a small Python script written by Moverest. The script is already included in the sway folder. under `scripts/` the behaviour is bound to the `PRINT` key.  
-
-### Rofi templates
 
 ```
 @define-color foreground {foreground};
@@ -39,6 +34,12 @@ This is a small Python script written by Moverest. The script is already include
 @define-color color14 {color14};
 @define-color color15 {color15};
 ```
+
+### [Sway-interactive-screenshot](https://github.com/moverest/sway-interactive-screenshot.git) 
+
+This is a small Python script written by Moverest. The script is already included in the sway folder. under `scripts/` the behaviour is bound to the `PRINT` key.  
+
+### Rofi templates
 
 ## Fedora-Sway spin specific configs
 
