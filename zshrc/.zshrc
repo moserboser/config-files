@@ -42,3 +42,4 @@ setopt hist_find_no_dups
 
 eval "$(fzf --zsh)"
 
+alias obsidian="~/appimages/Obsidian-1.6.7.AppImage & disown" 
