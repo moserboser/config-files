@@ -40,11 +40,20 @@ bindsym $mod+Tab exec --no-startup-id ~/.config/rofi/launchers/type-1/launcher.s
 #set $wallpaper wal -i $HOME/Pictures/backgrounds/nordic_wallpapers/ign_unsplash46.png
 
 #default red
-#output * bg $HOME/Pictures/backgrounds/catpuchin/red_bkg5.png fill
+#
 #exec wal -i $HOME/Pictures/backgrounds/catpuchin/red_bkg5.png
 
+#### Trying out some things: exec swww for the use of swayblur 
+#exec swww-daemon 
+#exec swww 
+#exec swww $HOME/Pictures/backgrounds/street_blues.png
+
+
+# change wallpaper with swaywayblur
+
+# set system colors matching wallpaper 
 output * bg $HOME/Pictures/backgrounds/street_blues.png fill
-exec wal -i $HOME/Pictures/backgrounds/street_blues.png
+exec wal -i $HOME/Pictures/backgrounds/street_blues.png 
 
 # Example configuration
 #
@@ -138,7 +147,7 @@ exec gammastep-indicator
 
     # Start your launcher
     bindsym $mod+d exec  --no-startup-id ~/.config/rofi/launchers/type-1/launcher.sh 
-
+    bindsym $mod+a exec --no-startup-id ~/.config/rofi/launchers/type-3/launcher.sh
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
     # Despite the name, also works for non-floating windows.
@@ -283,7 +292,7 @@ for_window [app_id="org.kde.dolphin"] opacity $opacity
     bindsym $mod+space focus mode_toggle
 
     # Move focus to the parent container
-    bindsym $mod+a focus parent
+    # bindsym $mod+a focus parent
 #
 # Scratchpad:
 #
@@ -329,9 +338,9 @@ bindsym $mod+r mode "resize"
 set $gnome-schema org.gnome.desktop.interface
 
 exec_always {
-    gsettings set $gnome-schema gtk-theme 'Arc-Dark-solid'
-    gsettings set $gnome-schema icon-theme 'Colloid-yellow-nord-dark' #insert your gtk theme here
-    gsettings set $gnome-schema cursor-theme 'Breeze Dark' #insert your gtk theme here
+    gsettings set $gnome-schema gtk-theme 'Graphite-blue-Dark-nord'
+    gsettings set $gnome-schema icon-theme 'Papirus-Dark' #insert your gtk theme here
+    gsettings set $gnome-schema cursor-theme 'Nordic-cursors' #insert your gtk theme here
     gsettings set $gnome-schema font-name 'Cascadia Code NF 10'
 }
 
@@ -377,7 +386,7 @@ client.placeholder #000000 #0c0c0c #ffffff #000000 #0c0c0c
 
 
 
-# set bg based on wall colors 
+# set g based on wall colors 
 
 
 # -- FEDORA specific configuration (files loading below) -- # (delete this if you are not using the fedora sway spink)
@@ -404,6 +413,3 @@ client.placeholder #000000 #0c0c0c #ffffff #000000 #0c0c0c
 # the trick, it's all in the `wordexp(3)`.
 #
 include '$(/usr/libexec/sway/layered-include "/usr/share/sway/config.d/*.conf" "/etc/sway/config.d/*.conf" "${XDG_CONFIG_HOME:-$HOME/.config}/sway/config.d/*.conf")'
-
-
-

@@ -42,3 +42,8 @@ setopt hist_find_no_dups
 
 eval "$(fzf --zsh)"
 
+bindkey -v 
+
+# add variables to path
+
+export PATH=$PATH:~/.local/bin
