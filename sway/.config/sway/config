@@ -254,9 +254,11 @@ assign [class="Code"] $workspace3
 # File manager
 assign [app_id="thunar"] $workspace5
 assign [app_id="org.kde.dolphin"] $workspace5
+assign [app_id="org.gnome.Nautilus"] $workspace5
 # Notes 
 assign [class="obsidian"] $workspace4
 assign [class="Logseq"] $workspace4
+
 # Conditions for opening Windows
 #
 # opening Alacritty with 30% screen sace
