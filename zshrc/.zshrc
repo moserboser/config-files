@@ -37,13 +37,14 @@ setopt hist_save_no_dups
 setopt hist_ignore_dups
 setopt hist_find_no_dups
 
+#typeset -g POWERLEVEL9K_INSTANT_PROMPT=off
 
 # fzf shell integration
 
 eval "$(fzf --zsh)"
 
-bindkey -v 
 
 # add variables to path
 
 export PATH=$PATH:~/.local/bin
+
