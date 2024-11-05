@@ -43,3 +43,4 @@ setopt hist_find_no_dups
 eval "$(fzf --zsh)"
 
 alias obsidian="~/appimages/Obsidian-1.6.7.AppImage & disown" 
+alias kdrive="~/appimages/kDrive-3.6.6.20241001-amd64.AppImage & disown"
