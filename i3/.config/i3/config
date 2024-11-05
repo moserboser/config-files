@@ -8,7 +8,6 @@
 #
 # Logo key. Use Mod1 for Alt.
 set $mod Mod4
-# Home row direction keys, like vim
 set $left h
 set $down j
 set $up k
@@ -27,24 +26,21 @@ set $rofi_cmd rofi \
 set $menu $rofi_cmd -show combi -combi-modes drun#run -modes combi
 
 #displaying open applications with rofi
-bindsym $mod+Tab exec --no-startup-id ~/.config/rofi/launchers/type-1/launcher.sh 
-
+bindsym $mod+Tab exec  ~/.config/rofi/launchers/type-1/launcher.sh 
+bindsym $mod+Shift+r restart
+bindsym $mod+Shift+w reload
+bindsym $mod+Shift+e exit
 
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 # Requires: desktop-backgrounds-compat, swaybg
 
-# default blue
-#exec wal -i $HOME/Pictures/backgrounds/nordic_wallpapers/ign_unsplash46.png
-#set $wallpaper wal -i $HOME/Pictures/backgrounds/nordic_wallpapers/ign_unsplash46.png
 
-#default red
-#output * bg $HOME/Pictures/backgrounds/catpuchin/red_bkg5.png fill
-#exec wal -i $HOME/Pictures/backgrounds/catpuchin/red_bkg5.png
 
-output * bg $HOME/Pictures/backgrounds/street_blues.png fill
-exec wal -i $HOME/Pictures/backgrounds/street_blues.png
+# change wallpaper with swaywayblur
+
+# set system colors matching wallpaper 
 
 # Example configuration
 #
@@ -52,21 +48,20 @@ exec wal -i $HOME/Pictures/backgrounds/street_blues.png
 #
 # You can get the names of your outputs by running: swaymsg -t get_outputs
 
-    output DP-3 resolution 1920x1080@165Hz  position 1920,0
+# Increase volume
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
 
+# Decrease volume
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
 
-### Input configuration
-#You can get the names of your inputs by running: swaymsg -t get_inputs
-# Read `man 5 sway-input` for more information about this section.
+# Mute/unmute
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
 
-# to get all the available inputs, check out `man 7 xkeyboard-config`
-# same command for keys for changing layouts.
-# a few examples from the man pages below:
+# Play/Pause
+bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause
 
-#       │ grp:alt_space_toggle        Alt+Space                                                                                                                                                                                                                                                                        │
-#       │ grp:win_space_toggle        Win+Space                                                                                                                                                                                                                                                                        │
-#       │ grp:ctrl_space_toggle       Ctrl+Space
-# get the available inputs with: swaymsg -t get_inputs
+# Next track
+bindsym XF86AudioNext exec --no-startup-id playerctl next
 
 # touchpad configureation
 input "type:touchpad" {
@@ -76,58 +71,65 @@ input "type:touchpad" {
     tap_button_map lrm 
     natural_scroll enabled #enable reverse scrollign
   }
+# Previous track
+bindsym XF86AudioPrev exec --no-startup-id playerctl previous
 
+#
+### run deamons and applications
+#
 
+# run notification deamon
+exec --no-startup-id dunst 
 
-# Us international layout for split keyboard
-#input type:keyboard {
-#    xkb_layout us
-#    xkb_variant intl
-#}
+# run network manager applet
+exec_always --no-startup-id nm-applet
+
+# rund volume and sound applet
+exec --no-startup-id volumeicon
+
+#
+# Keyboard input
+#
 
 # layout switching between ch and us-int when pressing alt and space together
-input type:keyboard {
-    xkb_layout us,ch
-    xkb_variant intl,
-    xkb_options grp:alt_space_toggle
-}
 
+exec_always --no-startup-id setxkbmap -layout "us,de" -variant "intl," -option ""
 
 
 ### Idle configuration
+
+# start i3 lock before screen is locked
+exec xss-lock --transfer-sleep-lock -- i3lock --no‐fork 
+#standyby after 600s suspend after 1000s 
+exec xset dpms 600 1000
+# manually start i3lock
+bindsym $mod+Mod1+L exec i3lock -i ~/Pictures/wallpapers/ign_unsplash46.png -e -f 
+
 #
-# Example configuration:
+### output configuration 
 #
-# exec swayidle -w \
-#          timeout 300 'swaylock -f -c 000000' \
-#          timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
-#          before-sleep 'swaylock -f -c 000000'
-#
-# This will lock your screen after 300 seconds of inactivity, then turn off
-# your displays after another 300 seconds, and turn your screens back on when
-# resumed. It will also lock your screen before your computer goes to sleep.
+
+#monitor setting
+exec_always --no-startup-id xrandr --output DP-2 --mode 1920x1080 --rate 165.00
+
+#background and color adjustment (with wal)
+exec_always --no-startup-id wal -i $HOME/Pictures/backgrounds/street_blues.png 
+exec_always --no-startup-id feh --bg-scale $HOME/Pictures/backgrounds/street_blues.png 
 
 # screen temperature adjustment - requires both gammastep and gammastep-indicator
-# IMPORTANT: The location has to be configured manually on fedorra sway. Also, the adjustment mode has to be set to wayland 
+# IMPORTANT: The location has to be configured manually on fedora sway. Also, the adjustment mode has to be set to wayland 
 # optionally, commands for the location can be executed manually (see man gammastep)
-exec gammastep 
-exec gammastep-indicator
+exec --no-startup-id gammastep 
+exec --no-startup-id gammastep-indicator
 
-### Input configuration
-#
-# Example configuration:
-#
-#   input "2:14:SynPS/2_Synaptics_TouchPad" {
-#       dwt enabled
-#       tap enabled
-#       natural_scroll enabled
-#       middle_emulation enabled
-#   }
-#
-# You can get the names of your inputs by running: swaymsg -t get_inputs
-# Read `man 5 sway-input` for more information about this section.
+# transparency and blur 
+exec_always --no-startup-id picom -b
+# bluetooth applet 
+exec_always --no-startup-id blueman-tray
 
 ### Key bindings
+
+
 #
 # Basics:
 #
@@ -139,31 +141,25 @@ exec gammastep-indicator
 
     # Start your launcher
     bindsym $mod+d exec  --no-startup-id ~/.config/rofi/launchers/type-1/launcher.sh 
-
+    bindsym $mod+a exec --no-startup-id ~/.config/rofi/launchers/type-3/launcher.sh
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
     # Despite the name, also works for non-floating windows.
     # Change normal to inverse to use left mouse button for resizing and right
     # mouse button for dragging.
-    floating_modifier $mod normal
+    floating_modifier $mod 
 
     # Reload the configuration file
     bindsym $mod+Shift+c reload
 
-    # Exit sway (logs you out of your Wayland session)
 
 
-
-# Exit menu
-bindsym $mod+Shift+e exec swaynag -m 'What would you like to do?' \
--b 'Suspend' 'systemctl suspend' \
--b 'Exit' 'swaymsg exit' \
--b 'Reboot' 'systemctl reboot' \
--b 'Power Off' 'systemctl poweroff'\
 
 #
 # Moving around:
 #
+
+
     # Move your focus around
     bindsym $mod+$left focus left
     bindsym $mod+$down focus down
@@ -186,9 +182,8 @@ bindsym $mod+Shift+e exec swaynag -m 'What would you like to do?' \
     bindsym $mod+Shift+Up move up
     bindsym $mod+Shift+Right move right
 
-    #screenshot shortcut - other settings in /config.d/60-bindings-screenshot.conf 
-   bindsym Print exec $HOME/.config/sway/scripts/sway-interactive-screenshot/sway-interactive-screenshot
-# Workspaces:
+    #screenshot shortcut - using the flameshot utility in the gui mode
+    bindsym Print exec flameshot gui 
 #
 
 # Names for workspaces for reference
@@ -239,13 +234,14 @@ set $workspace10 "10:  "
 # for xorg application (like spotify or vs code) you can alternatively assign the class which you get with `xprop`
 
 assign [class="Spotify"] $workspace10
-assign [app_id="org.mozilla.firefox"] $workspace2
+assign [class="org.mozilla.firefox"] $workspace2
 # editor
-assign [app_id="dev.zed.Zed-Dev"] $workspace3
+assign [class="dev.zed.Zed-Dev"] $workspace3
 assign [class="Code"] $workspace3
 # File manager
-assign [app_id="thunar"] $workspace5
-assign [app_id="org.kde.dolphin"] $workspace5
+assign [class="thunar"] $workspace5
+assign [class="org.kde.dolphin"] $workspace5
+assign [class="org.gnome.Nautilus"] $workspace5
 # Notes 
 assign [class="obsidian"] $workspace4
 assign [class="Logseq"] $workspace4
@@ -257,13 +253,11 @@ assign [class="Logseq"] $workspace4
 # fix broken kdrive opening 
 for_window [class="kDrive_client"] floating disable, resize set width 30ppt
 # opening Alacritty with 30% screen sace
-for_window [app_id="Alacritty"] resize set width 30 ppt
+for_window [class="Alacritty"] resize set width 30 ppt
 # opening windows in floating mode in the middle of the screen
-for_window [app_id="gpick"] floating enable, resize set 800 600 
+for_window [class="Gpick"] floating enable, resize set 800 600 
 #Setting opacity 
 
-set $opacity 0.9
-for_window [app_id="org.kde.dolphin"] opacity $opacity
 
 #
 # Layout stuff:
@@ -289,7 +283,7 @@ for_window [app_id="org.kde.dolphin"] opacity $opacity
     bindsym $mod+space focus mode_toggle
 
     # Move focus to the parent container
-    bindsym $mod+a focus parent
+    # bindsym $mod+a focus parent
 #
 # Scratchpad:
 #
@@ -325,6 +319,7 @@ mode "resize" {
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
+
 bindsym $mod+r mode "resize"
 
 
@@ -344,10 +339,11 @@ exec_always {
 
 # font
 
-font pango:HackNerdFont 10
+
+font pango:Agave Nerd Font 10
 smart_gaps off 
-gaps inner 8 
-gaps outer 8 
+gaps inner 2 
+gaps outer 2 
 default_border pixel 3 
 
 
@@ -369,47 +365,23 @@ set $aurora_yellow	#ebcb8b
 set $aurora_green	#a3be8c
 set $aurora_purple	#b48ead
 
-# include custom wall colours 
+# Set colors from Xresources
+# Change 'color7' and 'color2' to whatever colors you want i3 to use 
+# from the generated scheme.
+# NOTE: The '#f0f0f0' in the lines below is the color i3 will use if
+# it fails to get colors from Xresources.
+set_from_resource $fg i3wm.color7 
+set_from_resource $bg i3wm.color2 
+set_from_resource $bg2 i3wm.color10
 
-include "$HOME/.cache/wal/colors-sway"
-#| border | background | text | indicator | child_border
-client.focused $color7 $color7 $color0 $color7 $color7 
-client.focused_inactive $color0 #5f676a #ffffff #484e50 $color0 
-client.focused_tab_title $color0 #5f676a #ffffff  
-client.unfocused $color0 #222222 #888888 #292d2e $color0 
-client.urgent #2f343a #900000 #ffffff #900000 #900000
-client.placeholder #000000 #0c0c0c #ffffff #000000 #0c0c0c
+# class                 border  backgr. text indicator child_border
+client.focused          $fg     $fg     $nord_dark  $fg       $fg
+client.focused_inactive $bg     $fg     $nord_dark  $fg       $fg
+client.unfocused        $bg     $bg     $nord_dark  $bg       $bg
+client.urgent           #bf616a #bf616a $nord_dark  #bf616a  #bf616a     
+client.placeholder      $bg     $bg     $nord_dark  $bg       $bg
 
+## bar
 
-
-
-# set bg based on wall colors 
-
-
-# -- FEDORA specific configuration (files loading below) -- # (delete this if you are not using the fedora sway spink)
-
-# Include configs from 3 locations:
-#  - /usr/share/sway/config.d
-#  - /etc/sway/config.d
-#  - $XDG_CONFIG_HOME/sway/config.d ($HOME/.config/sway/config.d)
-#
-# If multiple directories contain the files with the same name, the later
-# directory takes precedence; `$XDG_CONFIG_HOME/sway/config.d/20-swayidle.conf`
-# will always be loaded instead of `/usr/share/sway/config.d/20-swayidle.conf`
-# or `/etc/sway/config.d/20-swayidle.conf`
-#
-# This mechanism permits overriding our default configuration per-system
-# (/etc) or per-user ($XDG_CONFIG_HOME) basis. Just create the file you
-# want to modify/override in the higher-level directory.
-#
-# For example, to disable the default bar from Fedora configs, you'll need to
-#     $ echo -n > "$HOME/.config/sway/config.d/90-bar.conf"
-#
-# Note the quoting, the $() and the arguments quoting. All the parts are equally
-# important to make the magic work. And if you want to learn the secret behind
-# the trick, it's all in the `wordexp(3)`.
-#
-include '$(/usr/libexec/sway/layered-include "/usr/share/sway/config.d/*.conf" "/etc/sway/config.d/*.conf" "${XDG_CONFIG_HOME:-$HOME/.config}/sway/config.d/*.conf")'
-
-
-
+#exec_always --no-startup-id polybar -r
+exec_always --no-startup-id $HOME/.config/i3/launch.sh 

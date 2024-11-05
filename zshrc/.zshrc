@@ -37,6 +37,7 @@ setopt hist_save_no_dups
 setopt hist_ignore_dups
 setopt hist_find_no_dups
 
+#typeset -g POWERLEVEL9K_INSTANT_PROMPT=off
 
 # fzf shell integration
 
@@ -44,3 +45,8 @@ eval "$(fzf --zsh)"
 
 alias obsidian="~/appimages/Obsidian-1.6.7.AppImage & disown" 
 alias kdrive="~/appimages/kDrive-3.6.6.20241001-amd64.AppImage & disown"
+
+# add variables to path
+
+export PATH=$PATH:~/.local/bin
+
