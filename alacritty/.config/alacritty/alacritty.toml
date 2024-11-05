@@ -1,4 +1,4 @@
-import = ["~/.config/alacritty/themes/themes/catppuccin_macchiato.toml"]
+general.import = ["~/.config/alacritty/themes/themes/catppuccin_macchiato.toml"]
 
 [env]
 term = "xterm-256color"
