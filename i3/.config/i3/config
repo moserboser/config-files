@@ -64,13 +64,13 @@ bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause
 bindsym XF86AudioNext exec --no-startup-id playerctl next
 
 # touchpad configureation
-input "type:touchpad" {
-    dwt enabled
-    dwtp enabled
-    tap enabled # enable tap to click
-    tap_button_map lrm 
-    natural_scroll enabled #enable reverse scrollign
-  }
+#input "type:touchpad" {
+ #   dwt enabled
+  #  dwtp enabled
+   # tap enabled 
+    #tap_button_map lrm 
+     #natural_scroll enabled 
+      #}
 # Previous track
 bindsym XF86AudioPrev exec --no-startup-id playerctl previous
 
@@ -329,12 +329,6 @@ bindsym $mod+r mode "resize"
 
 set $gnome-schema org.gnome.desktop.interface
 
-exec_always {
-    gsettings set $gnome-schema gtk-theme 'Graphite-Dark-nord'
-    gsettings set $gnome-schema icon-theme 'Tela-circle-black' #insert your gtk theme here
-    gsettings set $gnome-schema cursor-theme 'Nordic-cursors' #insert your gtk theme here
-    gsettings set $gnome-schema font-name 'Cascadia Code NF 10'
-}
 
 
 # font
