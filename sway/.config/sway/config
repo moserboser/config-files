@@ -1,3 +1,5 @@
+ include ~/.cache/wal/colors-sway
+
 # Default config for sway
 #
 # Copy this to ~/.config/sway/config and edit it to your liking.
@@ -33,28 +35,13 @@ bindsym $mod+Shift+e exit
 
 ## Keybinds
 # Increase volume
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
-
-# Decrease volume
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
-
-# Mute/unmute
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
-
-# Play/Pause
-bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause
-
-# Next track
-bindsym XF86AudioNext exec --no-startup-id playerctl next
-
-# touchpad configureation
-#input "type:touchpad" {
- #   dwt enabled
-  #  dwtp enabled
-   # tap enabled 
-    #tap_button_map lrm 
-     #natural_scroll enabled 
-      #}
+input "type:touchpad" {
+   dwt enabled
+   dwtp enabled
+   tap enabled 
+   tap_button_map lrm 
+   natural_scroll enabled 
+    }
 # Previous track
 bindsym XF86AudioPrev exec --no-startup-id playerctl previous
 
@@ -63,7 +50,7 @@ bindsym XF86AudioPrev exec --no-startup-id playerctl previous
 #
 
 # run notification deamon
-exec --no-startup-id dunst 
+exec --no-startup-id swaync
 
 # run network manager applet
 exec_always --no-startup-id nm-applet
@@ -75,21 +62,12 @@ exec --no-startup-id volumeicon
 # Keyboard input
 #
 
-# layout switching between ch and us-int when pressing alt and space together
 
-exec_always --no-startup-id setxkbmap -layout "us,de" -variant "intl," -option ""
-
-
-#exec_always --no-startup-id polybar -r
 
 ### Idle configuration
 
-# start i3 lock before screen is locked
-exec xss-lock --transfer-sleep-lock -- i3lock --no‐fork 
-#standyby after 600s suspend after 1000s 
-exec xset dpms 600 1000
-# manually start i3lock
-bindsym $mod+Mod1+L exec i3lock -i ~/Pictures/wallpapers/cattpuchin -e -f 
+# start swaylock before screen is locked
+bindsym $mod+Mod1+L exec swaylock -i ~/Pictures/nordic-wallpapers/wallpapers/fedora.png -e -f 
 
 #
 ### output configuration 
@@ -100,20 +78,13 @@ bindsym $mod+Mod1+L exec i3lock -i ~/Pictures/wallpapers/cattpuchin -e -f
 
 #background and color adjustment (with wal)
 
-exec_always --no-startup-id   wal -i ~/Pictures/backgrounds/cattpuchin/ 
+
+
 # screen temperature adjustment - requires both gammastep and gammastep-indicator
 # IMPORTANT: The location has to be configured manually on fedora sway. Also, the adjustment mode has to be set to wayland 
 # optionally, commands for the location can be executed manually (see man gammastep)
 exec --no-startup-id gammastep 
 exec --no-startup-id gammastep-indicator
-
-# transparency and blur 
-exec_always --no-startup-id picom -b
-# bluetooth applet 
-exec_always --no-startup-id blueman-tray
-
-### Key bindings
-
 
 #
 # Basics:
@@ -310,13 +281,8 @@ bindsym $mod+r mode "resize"
 
 # -- Styling sway --- #
 
-# additional commands to load gtk3 themes properly (For themes configured in lxapearance)
-
-
-
-
-# font
-
+exec_always wal -i -n ~/Pictures/backgrounds/cattpuchin/ 
+exec_always swaybg -i $wallpaper -m fill
 
 font pango:Agave Nerd Font 10
 smart_gaps off 
@@ -340,26 +306,25 @@ set $nord_dark5	#4c566a
 set $aurora_red     #bf616a
 set $aurora_orange	#d08770
 set $aurora_yellow	#ebcb8b
-set $aurora_green	#a3be8c
+set $aurora_green	  #a3be8c
 set $aurora_purple	#b48ead
 
-# Set colors from Xresources
-# Change 'color7' and 'color2' to whatever colors you want i3 to use 
-# from the generated scheme.
-# NOTE: The '#f0f0f0' in the lines below is the color i3 will use if
-# it fails to get colors from Xresources.
-set_from_resource $fg i3wm.color7 
-set_from_resource $bg i3wm.color2 
-set_from_resource $bg2 i3wm.color10
+# Format: border background text indicator
+# Focused window
+client.focused          $foreground     $foreground     $background $foreground
 
-# class                 border  backgr. text indicator child_border
-client.focused          $fg     $fg     $nord_dark  $fg       $fg
-client.focused_inactive $bg     $fg     $nord_dark  $fg       $fg
-client.unfocused        $bg     $bg     $nord_dark  $bg       $bg
-client.urgent           #bf616a #bf616a $nord_dark  #bf616a  #bf616a     
-client.placeholder      $bg     $bg     $nord_dark  $bg       $bg
+# Focused inactive window
+client.focused_inactive $background     $background     $foreground   $foreground
 
-## bar
+# Unfocused window
+client.unfocused        $background     $background     $foreground $background
 
+# Urgent window
+client.urgent           #bf616a         #bf616a         $nord_dark      #bf616a
 
-exec_always --no-startup-id $HOME/.config/i3/launch.sh 
+# Placeholder (e.g., gaps between tiles)
+client.placeholder      $background     $background     $nord_dark      $background
+
+#bar
+exec_always killall waybar
+exec_always waybar

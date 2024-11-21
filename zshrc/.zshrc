@@ -23,28 +23,9 @@ autoload -U compinit && compinit
 #autosugestions based on history
 zinit light zsh-users/zsh-autosuggestions
 
-
-#history
-HISTSIZE=5000
-HISFILE=~/.zsh_history
-SAVELIST=$HISTSIZE
-HISTDUP=erase
-setopt appendhistory
-setopt sharehistory
-setopt hist_ignore_space
-setopt hist_ignore_all_dups
-setopt hist_save_no_dups
-setopt hist_ignore_dups
-setopt hist_find_no_dups
-
-#typeset -g POWERLEVEL9K_INSTANT_PROMPT=off
-
-# fzf shell integration
-
-eval "$(fzf --zsh)"
-
 alias obsidian="~/appimages/Obsidian-1.6.7.AppImage & disown" 
 alias kdrive="~/appimages/kDrive-3.6.6.20241001-amd64.AppImage & disown"
+alias z="~/appimages/zellij"
 
 # add variables to path
 
