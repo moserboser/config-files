@@ -22,7 +22,7 @@
 }
 
 window#waybar {
-    background-color: #3c3836;
+    background-color: rgba(0,0,0,0.3);
     border-bottom: none;
     color: @workspacesbackground1;
     transition-property: background-color;
@@ -132,7 +132,7 @@ label:focus {
 #pulseaudio {
     background-color: @workspacesbackground1;
     color: #000000;
-    border-radius: 5px 0px 0px 5px;
+    border-radius: 0px 0px 0px 0px;
 }
 
 #pulseaudio.muted {
@@ -141,19 +141,15 @@ label:focus {
 }
 
 #idle_inhibitor {
-    background-color: rgba(0, 0, 0, 0);
-    color: #ffffff;
-    border-radius: 5px;
-    margin-right: 2px;
-    margin-left: 3px;
+    background-color: @workspacesbackground1;
+    color: #000000;
+    border-radius: 0px 0px 0px 0px;
 }
 
 #idle_inhibitor.activated {
     background-color: @workspacesbackground1;
     color: #000000;
-    border-radius: 5px;
-    margin-right: 2px;
-    margin-left: 2px;
+    border-radius: 0px 0px 0px 0px;
 
 }
 
@@ -171,5 +167,5 @@ label:focus {
   min-width: 30px;
   padding: 0 5px;
   color: #ffffff;
-  border-radius: 5px 5px 5px 5px;
+  border-radius: 5px 0px 0px 5px;
 }
