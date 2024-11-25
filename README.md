@@ -35,14 +35,6 @@ For pywal to work with waybar, you have to specify a custom pywal template for t
 @define-color color15 {color15};
 ```
 
-### [Sway-interactive-screenshot](https://github.com/moverest/sway-interactive-screenshot.git) 
-
-This is a small Python script written by Moverest. The script is already included in the sway folder. under `scripts/` the behaviour is bound to the `PRINT` key.  
-
-### [Rofi templates](https://github.com/adi1090x/rofi.git)
-
-A collection of rofi templates. A huge thanks to adi1090x. The templates are already included in the `rofi/` folder. Please refeer to the rofi template repo to change to a desired template. The template used in this config has been changed minimally. It is inspired by type1 Style2.  
-
 ## Fedora-Sway spin specific configs
 
 The fedora Sway spin includes some configurations that are made by default and located in `/usr/share/sway/config.d/*.conf` or `/etc/sway/config.d/*.conf`. If the files are moved into the sway config folder under `$HOME/.config/sway/config.d/` they will be preffered over the config files in the `usr/share/` or `etc` directories. In this configuration, all the files were moved into the home config folder. Changes were only made to the files controlling the execution of swaylock and grimshot (for screenshots). Read more on this on [fedora-sway configuration guide](https://docs.fedoraproject.org/en-US/fedora-sericea/configuration-guide/)
