@@ -37,7 +37,7 @@ bindsym $mod+Shift+w reload
 bindsym $mod+Shift+e exit
 bindsym $mod+r mode "resize"
 
-# start swaylock manually 
+# start swaylock 
 bindsym $mod+Mod1+L exec swaylock -i ~/Pictures/nordic-wallpapers/wallpapers/fedora.png -e -f 
 
 # increase/decrease volume
@@ -61,6 +61,11 @@ bindsym XF86MonBrightnessDown exec ddcutil setvcp 10 - 10 --display
 # Keyboard input
 #
 
+input * {
+    xkb_layout "us,ch"
+    xkb_variant "intl,"
+}
+
 input "type:touchpad" {
    dwt enabled
    dwtp enabled
@@ -68,11 +73,12 @@ input "type:touchpad" {
    tap_button_map lrm 
    natural_scroll enabled 
     }
-
-input * {
-    xkb_layout "us,ch"
-    xkb_variant "intl,"
-}
+input "Logitech USB Receiver Mouse" {
+    accel_profile flat
+    pointer_accel 0.5
+    natural_scroll enabled
+    middle_emulation enabled
+  }
 
 bindsym $mod+Space input * xkb_switch_layout next
 
@@ -146,7 +152,7 @@ exec --no-startup-id volumeicon
 
 #monitor setting
 
-   output DP-3 resolution 1920x1080 position 1920,0
+output DP-3 resolution 1920x1080@165Hz position 1920,0
 #
 # You can get the names of your outputs by running: swaymsg -t get_outputs
 
@@ -307,13 +313,18 @@ default_border pixel 2
 
 # gnome color scheme
 set $gnome-schema org.gnome.desktop.interface
-
+set $cursor_size 10 
+set $system_dpi_scaling_factor 1
 exec_always {
     gsettings set $gnome-schema gtk-theme 'Graphite-Dark-nord'
     gsettings set $gnome-schema icon-theme 'Pop'
     gsettings set $gnome-schema cursor-theme 'Pop'
+    gsettings set $gnome-schema cursor-size $cursor_size
+    gsettings set $gnome-schema text-scaling-factor $system_dpi_scaling_factor
 }
 
+
+## Styling
 #define color palette
 #just in case they are needed sometime
 
