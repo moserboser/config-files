@@ -27,6 +27,8 @@ set $rofi_cmd rofi \
 # executables from PATH.
 set $menu $rofi_cmd -show combi -combi-modes drun#run -modes combi
 
+exec_always volumeicon
+exec_always blueman-tray
 
 ## Keybinds
 
@@ -314,7 +316,7 @@ default_border pixel 2
 # gnome color scheme
 set $gnome-schema org.gnome.desktop.interface
 set $cursor_size 10 
-set $system_dpi_scaling_factor 1
+set $ystem_dpi_scaling_factor 1
 exec_always {
     gsettings set $gnome-schema gtk-theme 'Graphite-Dark-nord'
     gsettings set $gnome-schema icon-theme 'Pop'
