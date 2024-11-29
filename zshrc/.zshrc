@@ -26,10 +26,17 @@ zinit light zsh-users/zsh-autosuggestions
 alias obsidian="~/appimages/Obsidian-1.6.7.AppImage & disown" 
 alias kdrive="~/appimages/kDrive-3.6.6.20241001-amd64.AppImage & disown"
 alias z="~/appimages/zellij"
+alias n=nvim
 
 # add variables to path
-
 export PATH=$PATH:~/.local/bin
 
-export WLR_DRM_NO_MODIFIERS=1
-export WLR_NO_HARDWARE_CURSORS=1
+
+# Import colorscheme from 'wal' asynchronously
+# &   # Run the process in the background.
+# ( ) # Hide shell job control messages.
+# Not supported in the "fish" shell.
+(cat ~/.cache/wal/sequences &)
+
+# To add support for TTYs this line can be optionally added.
+source ~/.cache/wal/colors-tty.sh

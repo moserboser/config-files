@@ -1,4 +1,3 @@
- include ~/.cache/wal/colors-sway
 
 # Default config for sway
 #
@@ -45,19 +44,6 @@ bindsym $mod+Mod1+L exec swaylock -i ~/Pictures/nordic-wallpapers/wallpapers/fed
 # increase/decrease volume
 
 # note: for this to work: install pamixer 
-
-# Increase volume
-bindsym XF86AudioRaiseVolume exec pamixer --increase 5
-
-# Decrease volume
-bindsym XF86AudioLowerVolume exec pamixer --decrease 5
-
-# Mute/unmute
-bindsym XF86AudioMute exec pamixer --toggle-mute
-
-
-bindsym XF86MonBrightnessUp exec ddcutil setvcp 10 + 10 --display  
-bindsym XF86MonBrightnessDown exec ddcutil setvcp 10 - 10 --display  
 
 #
 # Keyboard input
@@ -298,14 +284,21 @@ mode "resize" {
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
-
-
-
-# -- Styling sway --- #
-
-exec_always wal -c
-exec_always wal -n ~/Pictures/backgrounds/cattpuchin/gameboy_moca.png 
+exec_always wal -i "~/Pictures/backgrounds/cattpuchin/gameboy_moca.png" -n
+include "$HOME/.cache/wal/colors-sway"
 exec_always swaybg -i $wallpaper -m fill
+
+set $gnome-schema org.gnome.desktop.interface
+exec_always {
+    gsettings set $gnome-schema gtk-theme 'Adwaita'
+    gsettings set $gnome-schema icon-theme 'Pop'
+    gsettings set $gnome-schema cursor-theme 'Paper'
+    gsettings set $gnome-schema font-name 'Agave Nerd Font 10'
+}
+
+set $gtk-theme Adwaita
+set $icon-theme Pop
+set $cursor-theme Paper
 
 font pango:Agave Nerd Font 10
 smart_gaps off 
@@ -313,17 +306,6 @@ gaps inner 2
 gaps outer 2 
 default_border pixel 2 
 
-# gnome color scheme
-set $gnome-schema org.gnome.desktop.interface
-set $cursor_size 10 
-set $ystem_dpi_scaling_factor 1
-exec_always {
-    gsettings set $gnome-schema gtk-theme 'Graphite-Dark-nord'
-    gsettings set $gnome-schema icon-theme 'Pop'
-    gsettings set $gnome-schema cursor-theme 'Pop'
-    gsettings set $gnome-schema cursor-size $cursor_size
-    gsettings set $gnome-schema text-scaling-factor $system_dpi_scaling_factor
-}
 
 
 ## Styling
