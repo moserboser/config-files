@@ -27,7 +27,8 @@ alias obsidian="~/appimages/Obsidian-1.6.7.AppImage & disown"
 alias kdrive="~/appimages/kDrive-3.6.6.20241001-amd64.AppImage & disown"
 alias z="~/appimages/zellij"
 alias n=nvim
-
+alias bu= ddcutil setvcp 10 + 10
+alias bd= ddcutil setvcp 10 - 10
 # add variables to path
 export PATH=$PATH:~/.local/bin
 

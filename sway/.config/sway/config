@@ -39,9 +39,9 @@ bindsym $mod+Shift+e exit
 bindsym $mod+r mode "resize"
 
 # start swaylock 
-bindsym $mod+Mod1+L exec swaylock -i ~/Pictures/nordic-wallpapers/wallpapers/fedora.png -e -f 
+bindsym $mod+Mod1+L exec ~/.config/sway/scripts/logout.sh
 
-# increase/decrease volume
+#volume 
 
 # note: for this to work: install pamixer 
 
@@ -113,7 +113,16 @@ bindsym $mod+Space input * xkb_switch_layout next
     bindsym $mod+Shift+Right move right
 
     #screenshot shortcut - using sway-interactive-screenshot script 
-    bindsym Print exec ~/.config/sway/scripts/sway-interactive-screenshot/sway-interactive-screenshot 
+    bindsym Print exec ~/.config/sway/scripts/sway-interactive-screenshot/sway-interactive-screenshot
+
+#brightness for monitor (comment on laptops)
+    
+# Increase brightness 
+bindsym XF86MonBrightnessUp exec ~/.config/sway/scripts/brightness.sh -u
+
+# Decrease brightness
+bindsym XF86MonBrightnessDown exec ~/.config/sway/scripts/brightness.sh -d
+
 
 #
 ### run deamons and applications
@@ -131,8 +140,19 @@ exec --no-startup-id volumeicon
 
 ### Idle configuration
 
+exec_always LT="$lock_timeout" ST="$screen_timeout" LT=${LT:-300} ST=${ST:-60} && \
+    swayidle -w \
+        timeout $LT 'swaylock -f' \
+        timeout $((LT + ST)) 'swaymsg "output * power off"' \
+                      resume 'swaymsg "output * power on"'  \
+        timeout $ST 'pgrep -xu "$USER" swaylock >/dev/null && swaymsg "output * power off"' \
+             resume 'pgrep -xu "$USER" swaylock >/dev/null && swaymsg "output * power on"'  \
+        before-sleep 'swaylock -f' \
+        lock 'swaylock -f' \
+        unlock 'pkill -xu "$USER" -SIGUSR1 swaylock'
 
-#sway idle config is contained under 90-swayidle.conf
+### logout and slee
+
 
 #
 ### output configuration 
@@ -290,7 +310,7 @@ exec_always swaybg -i $wallpaper -m fill
 
 set $gnome-schema org.gnome.desktop.interface
 exec_always {
-    gsettings set $gnome-schema gtk-theme 'Adwaita'
+    gsettings set $gnome-schema gtk-theme 'Pop-dark'
     gsettings set $gnome-schema icon-theme 'Pop'
     gsettings set $gnome-schema cursor-theme 'Paper'
     gsettings set $gnome-schema font-name 'Agave Nerd Font 10'
