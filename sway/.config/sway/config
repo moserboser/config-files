@@ -81,8 +81,6 @@ bindsym $mod+Space input * xkb_switch_layout next
     # resize windows 
     floating_modifier $mod 
 
-    # Reload the configuration file
-    bindsym $mod+Shift+c reload
 
 
 #
@@ -304,9 +302,11 @@ mode "resize" {
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
-exec_always wal -i "~/Pictures/backgrounds/cattpuchin/gameboy_moca.png" -n
+exec_always ~/.config/sway/scripts/startup_wal.sh 
 include "$HOME/.cache/wal/colors-sway"
 exec_always swaybg -i $wallpaper -m fill
+# change themes and wallpaper with rofi 
+bindsym $mod+Shift+c exec $HOME/.config/sway/scripts/themes.sh
 
 set $gnome-schema org.gnome.desktop.interface
 exec_always {

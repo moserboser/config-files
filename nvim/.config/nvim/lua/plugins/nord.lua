@@ -1,8 +1,6 @@
 return {
-  {
-    "LazyVim/LazyVim",
-    opts = {
-      colorscheme = "catppuccin",
-    },
-  },
+  "sho-87/kanagawa-paper.nvim",
+  lazy = false,
+  priority = 1000,
+  opts = {},
 }
