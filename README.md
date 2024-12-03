@@ -8,9 +8,8 @@ These files are not optimized for other users! The wallpaper paths have to be ad
 ## Dependencies 
 
 ### [Pywal](https://github.com/dylanaraps/pywal.git) 
-The colors alacritty, waybar, swaync as well as sway change automatically based on the wallpaper. The walpaper has to be set in the sway config file: `exec_always wal -i "yourwallpaper.png" -n`. The wallpaper can then be referenced with `$wallpaper`  and be used with your wallpaper application of choice. 
-
-. Just replace the path for both with the desired image path. 
+The colors alacritty, waybar, swaync as well as sway change automatically based on the wallpaper. The wallpaper has to be set in the sway config file in the following line: `exec_always wal -i "yourwallpaper.png" -n`. The wallpaper can then be referenced with `$wallpaper` and be used with your wallpaper application of choice. 
+ 
 For pywal to work with waybar, you have to specify a custom pywal template for the wayar colors: Create a file named `colors-waybar.css` with the following content in `~/.config/wal/templates/`: 
 
 
