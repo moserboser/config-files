@@ -1,9 +1,4 @@
 {
-    "layer": "top",
-    "height": 20,
-    "modules-left": ["sway/workspaces", "sway/mode"],
-    "modules-center": ["sway/window"],
-    "modules-right": ["custom/vpn","tray", "idle_inhibitor", "pulseaudio", "network", "backlight", "battery", "clock",  "custom/notification" ],
     "sway/workspaces": {
         "disable-scroll": true,
         "all-outputs": true,
@@ -101,14 +96,16 @@
                 "on-click": "swaync-client -t -sw",
                 "on-click-right": "swaync-client -d -sw",
                 "escape": true
-    }
-  }
-  "tray": {
-            "icon-size": 19,
-            "spacing": 30,
-            "show-passive-items": 1,
-            "revers-direction": 1     
-           }
-}  
-   
-   
+    },
+          "wlr/taskbar": {
+            "format": "{icon} {name}",
+            "icon-size": 13,
+            "tooltip": false,
+            "on-click": "activate",
+            "on-click-right": "close",
+            "app_ids-mapping": {
+                "gnome-terminal-server": "org.gnome.Terminal"
+            }
+        },
+}   
+

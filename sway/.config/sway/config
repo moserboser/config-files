@@ -24,9 +24,8 @@ set $rofi_cmd rofi \
         -terminal '$term'
 # Shows a combined list of the applications with desktop files and
 # executables from PATH.
-set $menu $rofi_cmd -show combi -combi-modes drun#run -modes combi
+set $menu $rofi_cmd -show combi -combi-modes "drun,run" #run -modes combi
 
-exec_always volumeicon
 exec_always blueman-tray
 
 ## Keybinds
@@ -310,8 +309,6 @@ bindsym $mod+Shift+c exec $HOME/.config/sway/scripts/themes.sh
 
 set $gnome-schema org.gnome.desktop.interface
 exec_always {
-    gsettings set $gnome-schema gtk-theme 'Pop-dark'
-    gsettings set $gnome-schema icon-theme 'Pop'
     gsettings set $gnome-schema cursor-theme 'Paper'
     gsettings set $gnome-schema font-name 'Agave Nerd Font 10'
 }

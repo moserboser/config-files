@@ -12,6 +12,12 @@
 @define-color textcolor3 #FFFFFF;
 @define-color iconcolor #FFFFFF;
 
+.topbar {
+}
+.botombar{
+}
+
+
 * {
     border: none;
     border-radius: 0;
@@ -168,4 +174,11 @@ label:focus {
   padding: 0 5px;
   color: #ffffff;
   border-radius: 5px 0px 0px 5px;
+}
+
+#taskbar button{
+  color: @workspacesbackground1
+}
+#taskbar button.active{
+  color: #ffffff;
 }

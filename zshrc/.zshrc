@@ -31,7 +31,7 @@ alias bu= ddcutil setvcp 10 + 10
 alias bd= ddcutil setvcp 10 - 10
 # add variables to path
 export PATH=$PATH:~/.local/bin
-
+export GTK_THEME='Pop-dark'
 
 # Import colorscheme from 'wal' asynchronously
 # &   # Run the process in the background.
@@ -41,3 +41,4 @@ export PATH=$PATH:~/.local/bin
 
 # To add support for TTYs this line can be optionally added.
 source ~/.cache/wal/colors-tty.sh
+

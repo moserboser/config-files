@@ -1,0 +1,27 @@
+[
+{
+"name":"topbar",
+"layer": "top",
+"position": "top",
+"include": ["~/.config/waybar/config.jsonc",],
+    "layer": "top",
+    "height": 18,
+    "modules-left": [ "sway/workspaces", ],
+    "modules-center": ["sway/window"],
+    "modules-right": [ "tray","custom/vpn", "idle_inhibitor", "pulseaudio", "network", "backlight", "battery", "clock",  "custom/notification" ]
+    
+},
+
+{
+"name": "bottombar",
+"layer": "top",
+"position": "bottom",
+"include": ["~/.config/waybar/config.jsonc",],
+"height": 18,
+ "modules-left": [],
+        "modules-center": ["wlr/taskbar"],
+        "modules-right": [],
+},
+
+]
+
