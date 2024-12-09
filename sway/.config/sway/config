@@ -26,7 +26,9 @@ set $rofi_cmd rofi \
 # executables from PATH.
 set $menu $rofi_cmd -show combi -combi-modes "drun,run" #run -modes combi
 
-exec_always blueman-tray
+# bluetooth 
+exec --no-startup-id bluetoothctl power on
+exec --no-startup-id blueman-applet
 
 ## Keybinds
 
