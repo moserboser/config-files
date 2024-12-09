@@ -1,3 +1,26 @@
+# Wait until a StatusNotifierItem tray implementation is available and
+# process XDG autostart entries.
+#
+# This horror has to exist because
+#
+#  - SNI spec mandates that if `IsStatusNotifierHostRegistered` is not set,
+#    the client should fall back to the Freedesktop System Tray specification
+#    (XEmbed).
+#  - There are actual implementations that take this seriously and implement
+#    a fallback *even if* StatusNotifierWatcher is already DBus-activated.
+#  - https://github.com/systemd/systemd/issues/3750
+#
+exec /usr/libexec/sway-systemd/wait-sni-ready && \
+    systemctl --user start sway-xdg-autostart.target
+
+# Start graphical authentication agent for PolicyKit.
+#
+# Certain applications may require this to request elevated privileges:
+#   GParted, virt-manager, anything that uses pkexec
+#
+# Requires: lxqt-policykit
+
+exec /usr/libexec/lxqt-policykit-agent
 
 # Default config for sway
 #
@@ -43,7 +66,18 @@ bindsym $mod+r mode "resize"
 bindsym $mod+Mod1+L exec ~/.config/sway/scripts/logout.sh
 
 #volume 
+bindsym --locked {
+    XF86AudioPlay       exec playerctl play-pause
+    XF86AudioStop       exec playerctl stop
+}
 
+bindsym {
+    XF86AudioForward    exec playerctl position +10
+    XF86AudioNext       exec playerctl next
+    XF86AudioPause      exec playerctl pause
+    XF86AudioPrev       exec playerctl previous
+    XF86AudioRewind     exec playerctl position -10
+}
 # note: for this to work: install pamixer 
 
 #
@@ -245,6 +279,24 @@ for_window [class="Alacritty"] resize set width 30 ppt
 for_window [class="Gpick"] floating enable, resize set 800 600 
 #Setting opacity 
 
+# inhibit scrensaver for fullscreen browser windows
+for_window [con_mark="Browser"] {
+    inhibit_idle fullscreen
+}
+
+# firefox wayland screensharing indicator
+for_window [app_id="firefox" title="Firefox — Sharing Indicator"] {
+    floating enable
+}
+
+# apply mark for Xwayland and wayland native browser windows
+for_window [class="Chromium-browser"] mark Browser
+for_window [class="Brave-browser"] mark Browser
+for_window [class="firefox"]  mark Browser
+for_window [app_id="Chromium-browser"] mark Browser
+for_window [app_id="brave-browser"] mark Browser
+for_window [app_id="firefox"] mark Browser
+
 
 #
 # Layout stuff:
@@ -365,5 +417,4 @@ client.placeholder      $background     $background     $nord_dark      $backgro
 exec_always killall waybar
 exec_always waybar
 
-#fedora sway specific config
-include '$($LIBEXECDIR/sway/layered-include "$DATADIR/sway/config.d/*.conf" "$SYSCONFDIR/sway/config.d/*.conf" "${XDG_CONFIG_HOME:-$HOME/.config}/sway/config.d/*.conf")'
+

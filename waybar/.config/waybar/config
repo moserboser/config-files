@@ -18,9 +18,9 @@
 "position": "bottom",
 "include": ["~/.config/waybar/config.jsonc",],
 "height": 18,
- "modules-left": [],
+ "modules-left": ["cava"],
         "modules-center": ["wlr/taskbar"],
-        "modules-right": [],
+        "modules-right": ["mpris"],
 },
 
 ]
