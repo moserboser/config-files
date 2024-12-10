@@ -41,4 +41,3 @@ export GTK_THEME='Pop-dark'
 
 # To add support for TTYs this line can be optionally added.
 source ~/.cache/wal/colors-tty.sh
-
