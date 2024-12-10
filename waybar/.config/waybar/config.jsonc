@@ -101,6 +101,9 @@
             "format": "{icon} {name}",
             "icon-size": 13,
             "tooltip": false,
+            "ignore-list": [
+            "Alacritty"
+            ],
             "on-click": "activate",
             "on-click-right": "close",
             "app_ids-mapping": {
@@ -172,9 +175,10 @@
     },
 "custom/scratchpad-indicator": {
     "interval": 1,
+    "max-height": 10,
     "return-type": "json",
     "exec": "swaymsg -t get_tree | jq --unbuffered --compact-output '(recurse(.nodes[]) | select(.name == \"__i3_scratch\") | .focus) as $scratch_ids | [..  | (.nodes? + .floating_nodes?) // empty | .[] | select(.id |IN($scratch_ids[]))] as $scratch_nodes | if ($scratch_nodes|length) > 0 then { text: \"\\($scratch_nodes | length)\", tooltip: $scratch_nodes | map(\"\\(.app_id // .window_properties.class) (\\(.id)): \\(.name)\") | join(\"\\n\") } else empty end'",
-    "format": "{} 🗗",
+    "format": " {} W ",
     "on-click": "exec swaymsg 'scratchpad show'",
     "on-click-right": "exec swaymsg 'move scratchpad'"
 },

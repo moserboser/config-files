@@ -1,25 +1,26 @@
 #!/bin/bash
 
-CHOICE=$(echo -e "Gameboy\nUnsplash\nCity\nNight" | rofi -dmenu -p "Choose action:")
+# Specify the folder to search
+folder_path="$HOME/Pictures/backgrounds/cattpuchin/"
 
-case "$CHOICE" in
-Gameboy)
-  ~/.local/bin/wal -i $HOME/Pictures/backgrounds/cattpuchin/gameboy_moca.png -n
-  swaymsg reload
-  ;;
-Unsplash)
-  ~/.local/bin/wal -i $HOME/Pictures/backgrounds/nordic_wallpapers/ign_unsplash46.png -n
-  swaymsg reload
-  ;;
-City)
-  ~/.local/bin/wal -i $HOME/Pictures/backgrounds/cattpuchin/street_blues_moccha.png -n
-  swaymsg reload
-  ;;
-Night)
-  ~/.local/bin/wal -i $HOME/Pictures/backgrounds/cattpuchin/city_night_moca.png -n
-  swaymsg reload
-  ;;
-*)
-  # Do nothing
-  ;;
-esac
+# Find all image files and store their paths
+image_files=$(find "$folder_path" -type f \( -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.png" -o -iname "*.gif" \))
+
+# Create a mapping of filenames to full paths
+declare -A file_map
+while IFS= read -r file; do
+  filename=$(basename "$file")
+  file_map["$filename"]="$file"
+done <<<"$image_files"
+
+# Show only filenames in Rofi
+selected_filename=$(printf "%s\n" "${!file_map[@]}" | rofi -dmenu -i -p "Select an image")
+
+# Check if a file was selected
+if [ -n "$selected_filename" ]; then
+  # Get the full path using the selected filename
+  selected_file="${file_map["$selected_filename"]}"
+  # use wal on the selected file
+  wal -c
+  ~/.local/bin/wal -i "$selected_file" -n
+fi

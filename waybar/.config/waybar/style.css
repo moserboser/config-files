@@ -76,8 +76,7 @@ window#waybar.hidden {
 #pulseaudio,
 #mode,
 #idle_inhibitor,
-#mpd,
-#tray
+#mpd
 {
     padding: 0 10px;
     margin: 0 0px;
@@ -163,18 +162,10 @@ label:focus {
     color: #000000;
     background-color: @workspacesbackground1;
     min-width: 20px;
-    margin-right: 5px;
-    border-radius: 0px 5px 5px 0px;
+    margin-right: 0px;
+    border-radius: 0px 0px 5px 0px;
 }
 
-#tray {
-  color: #ffffff;
-  background-color: #3c3836;
-  min-width: 30px;
-  padding: 0 5px;
-  color: #ffffff;
-  border-radius: 5px 0px 0px 5px;
-}
 
 #taskbar button{
   color: @workspacesbackground1
@@ -183,8 +174,16 @@ label:focus {
   color: #ffffff;
 }
 
-#tray {
+#tray,
+#tray > .active,
+#tray > .passive,
+#tray menu
+{
+  color: #000000;
   background-color: @workspacesbackground2;
+  border-radius: 5px 0px 0px 5px;
+  min-width: 30px;
+  padding: 0 5px;
 }
 
 #custom-updates
@@ -192,10 +191,10 @@ label:focus {
   color: @workspacesbackground2
 }
 
-#custom-custom-scratchpad-indicator
+#custom-scratchpad-indicator
 {
-  color: #ffffff;
+  color: #000000;
   background-color: @workspacesbackground1;
   border-radius: 5px;
-  padding: 5px 5px;
 }
+
