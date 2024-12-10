@@ -138,11 +138,7 @@
 	    "on-click-right": "mode"
 	}
  },
-  "image/album-art": {
-     "exec":"~/.config/waybar/custom modules/album_art.sh",
-     "size": 32,
-     "interval": 30,  
-},
+
 "disk": {
 	"interval": 30,
 	"format": "{specific_free:0.2f} GB out of {specific_total:0.2f} GB. | ",
@@ -154,5 +150,26 @@
     "format": "{}% ",
     "max-length": 10
 
-}   
+},   
+    "custom/updates": {
+    "exec": "bash ~/.config/waybar/scripts/checkupdates.sh", // <--- path to script
+    "on-click-right": "bash ~/.config/waybar/scripts/checkupdates.sh", // refresh on right click
+    "on-click-middle": "swaymsg exec '$term -e sudo dnf update'", // update on middle click    
+    "interval": 900, // refresh every 15 minutes
+    "return-type": "json",
+    "format": "{icon}",
+    "format-alt": "{icon} {}",
+    "format-icons": {
+        "has-updates": "", // icon when updates needed
+        "updated": "" // icon when all packages updated
+    }
+    },
+"custom/scratchpad-indicator": {
+    "interval": 3,
+    "return-type": "json",
+    "exec": "swaymsg -t get_tree | jq --unbuffered --compact-output '(recurse(.nodes[]) | select(.name == \"__i3_scratch\") | .focus) as $scratch_ids | [..  | (.nodes? + .floating_nodes?) // empty | .[] | select(.id |IN($scratch_ids[]))] as $scratch_nodes | if ($scratch_nodes|length) > 0 then { text: \"\\($scratch_nodes | length)\", tooltip: $scratch_nodes | map(\"\\(.app_id // .window_properties.class) (\\(.id)): \\(.name)\") | join(\"\\n\") } else empty end'",
+    "format": "{} 🗗",
+    "on-click": "exec swaymsg 'scratchpad show'",
+    "on-click-right": "exec swaymsg 'move scratchpad'"
+}
 }

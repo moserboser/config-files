@@ -187,4 +187,15 @@ label:focus {
   background-color: @workspacesbackground2;
 }
 
+#custom-updates
+{
+  color: @workspacesbackground2
+}
 
+#custom-custom-scratchpad-indicator
+{
+  color: #ffffff;
+  background-color: @workspacesbackground1;
+  border-radius: 5px;
+  padding: 5px 5px;
+}
