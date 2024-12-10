@@ -138,5 +138,21 @@
 	    "on-click-right": "mode"
 	}
  },
-}   
+  "image/album-art": {
+     "exec":"~/.config/waybar/custom modules/album_art.sh",
+     "size": 32,
+     "interval": 30,  
+},
+"disk": {
+	"interval": 30,
+	"format": "{specific_free:0.2f} GB out of {specific_total:0.2f} GB. | ",
+	"unit": "GB"
+	// 0.25 GB out of 2000.00 GB available. Alternatively 241.3MiB out of 1.9TiB available.
+},
+"memory": {
+    "interval": 30,
+    "format": "{}% ",
+    "max-length": 10
 
+}   
+}
