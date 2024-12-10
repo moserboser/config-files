@@ -18,7 +18,7 @@
 "position": "bottom",
 "include": ["~/.config/waybar/config.jsonc",],
 "height": 23,
- "modules-left": ["custom/art","disk","memory"],
+ "modules-left": ["custom/art","disk","memory", "cpu"],
         "modules-center": ["wlr/taskbar"],
         "modules-right": [ "mpris", "custom/scratchpad-indicator"],
 },
