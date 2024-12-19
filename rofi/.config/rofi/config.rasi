@@ -6,10 +6,10 @@ configuration {
   modi: "drun,window";
 }
 
-/* Dark theme. */
+/* light */
 
 
-@import "~/.cache/wal/colors-rofi-light"
+@import "~/.cache/wal/colors-rofi-dark"
 window {
   width: 30%;
   border: 4;

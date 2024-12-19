@@ -1,26 +1,45 @@
 #!/bin/bash
 
 # Specify the folder to search
-folder_path="$HOME/Pictures/backgrounds/cattpuchin/"
+base_folder="$HOME/Pictures/backgrounds/cattpuchin/"
 
-# Find all image files and store their paths
-image_files=$(find "$folder_path" -type f \( -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.png" -o -iname "*.gif" \))
+# Debug: Ensure the base folder exists
+if [ ! -d "$base_folder" ]; then
+  notify-send "Error: Base folder does not exist. Please specify a base folder in ~/.config/sway/scripts/themes.sh line 4"
+  exit 1
+fi
 
-# Create a mapping of filenames to full paths
-declare -A file_map
-while IFS= read -r file; do
-  filename=$(basename "$file")
-  file_map["$filename"]="$file"
-done <<<"$image_files"
+# Find all subfolders and files
+folders_and_files=$(find "$base_folder" -mindepth 1 -maxdepth 1 \( -type d -o -type f \( -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.png" -o -iname "*.gif" \) \))
 
-# Show only filenames in Rofi
-selected_filename=$(printf "%s\n" "${!file_map[@]}" | rofi -dmenu -i -p "Select an image")
+# Create a mapping of names (folders and filenames) to full paths
+declare -A item_map
+while IFS= read -r item; do
+  name=$(basename "$item")
+  item_map["$name"]="$item"
+done <<<"$folders_and_files"
 
-# Check if a file was selected
-if [ -n "$selected_filename" ]; then
-  # Get the full path using the selected filename
-  selected_file="${file_map["$selected_filename"]}"
-  # use wal on the selected file
-  wal -c
-  ~/.local/bin/wal -i "$selected_file" -n
+#Show names in Rofi
+selected_item=$(printf "%s\n" "${!item_map[@]}" | rofi -dmenu -i -p "Select image or folder")
+
+# Check if a selection was made
+if [ -n "$selected_item" ]; then
+  selected_path="${item_map["$selected_item"]}"
+  if [ -d "$selected_path" ]; then
+    # If a folder was selected, randomly select an image from the folder
+    selected_file=$(find "$selected_path" -type f \( -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.png" -o -iname "*.gif" \) | shuf -n 1)
+  else
+    # If a file was selected, use it directly
+    selected_file="$selected_path"
+  fi
+
+  # Check if a valid image file was selected
+  if [ -n "$selected_file" ]; then
+    # Use wal on the selected file
+    wal -c
+    ~/.local/bin/wal -i "$selected_file" -n
+    swaybg -i "$selected_file" -m fill
+  else
+    notify-send "No valid image found in the folder!" "Please select another folder or image."
+  fi
 fi
