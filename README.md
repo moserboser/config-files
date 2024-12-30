@@ -1,7 +1,9 @@
 # Configuration files fedora-sway spin
 
 ## **Important**
+
 These files are not optimized for other users and should thus not be used as are. 
+
 ----- 
 
 ## Dependencies 
