@@ -7,9 +7,9 @@ These files are not optimized for other users and should thus not be used as are
 ## Dependencies 
 
 ### [Pywal](https://github.com/dylanaraps/pywal.git) 
-The colors alacritty, waybar, swaync as well as sway change automatically based on the wallpaper. 
+The colors of alacritty, waybar, swaync as well as sway change automatically based on the wallpaper. 
 The `themes.sh` scrip allows for searching folders in a specified directory and running wal on a randomly selected image from the selected folder.
-Stow is set up to use [haishoku](https://github.com/LanceGin/haishoku.git) as a backend.   
+Stow is set up to use [haishoku](https://github.com/LanceGin/haishoku.git) as a backend.
 
 For pywal to work with waybar, you have to specify a custom pywal template for the wayar colors: Create a file named `colors-waybar.css` with the following content in `~/.config/wal/templates/`: 
 
@@ -43,7 +43,7 @@ Otherwise you can clone the repo, change into it and run `stow config-directory-
 
 ## credits 
 
-[Sway interactive Screenshot](https://github.com/moverest/sway-interactive-screenshot.git) by is used for screenshots.
+[Sway interactive Screenshot](https://github.com/moverest/sway-interactive-screenshot.git) is used for screenshots.
 
 
 
