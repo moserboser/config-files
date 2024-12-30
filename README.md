@@ -11,7 +11,7 @@ These files are not optimized for other users and should thus not be used as are
 ### [Pywal](https://github.com/dylanaraps/pywal.git) 
 The colors of alacritty, waybar, swaync as well as sway change automatically based on the wallpaper. 
 The `themes.sh` scrip allows for searching folders in a specified directory and running wal on a randomly selected image from the selected folder.
-Stow is set up to use [haishoku](https://github.com/LanceGin/haishoku.git) as a backend.
+Pywal is set up to use [haishoku](https://github.com/LanceGin/haishoku.git) as a backend.
 
 For pywal to work with waybar, you have to specify a custom pywal template for the wayar colors: Create a file named `colors-waybar.css` with the following content in `~/.config/wal/templates/`: 
 
