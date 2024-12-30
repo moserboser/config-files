@@ -7,7 +7,7 @@ Logout)
   swaymsg exit
   ;;
 Screensave)
-  swaylock -n -e -i ~/Pictures/backgrounds/catpuchin/kittyboard.png
+  swaylock -n -e -i ~/Pictures/backgrounds/nordic_wallpapers/ign_unsplash46.png
   ;;
 Hybernate)
   systemctl hybernate

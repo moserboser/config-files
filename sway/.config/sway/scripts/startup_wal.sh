@@ -7,10 +7,8 @@ current_hour=$(date +"%H")
 
 # Execute commands based on the time of day
 if [ "$current_hour" -ge 6 ] && [ "$current_hour" -lt 12 ]; then
-  ~/.local/bin/wal -c
-  ~/.local/bin/wal -i "~/Pictures/backgrounds/cattpuchin/gameboy_moca.png" -n
+  notify-send "good morning or good afternoon"
 else
   [ "$current_hour" -ge 20 ] && [ "$current_hour" -lt 5 ]
-  ~/.local/bin/wal -c
-  ~/.local/bin/wal -i "~/Pictures/backgrounds/cattpuchin/city_night_moca.png" -n
+  notify-send "good evening"
 fi

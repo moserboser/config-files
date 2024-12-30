@@ -1,0 +1,30 @@
+## keybinds
+
+# tabs
+keybind = ctrl+t=new_tab
+keybind = ctrl+w=close_surface
+
+# reload configuration
+keybind = ctrl+shift+r=reload_config
+
+## other configs 
+
+gtk-single-instance = true 
+
+# padding 
+window-padding-x = 4 
+window-padding-y = 4 
+# fonts
+font-family = "Agave Nerd Font"
+font-size = 14 
+bold-is-bright = true 
+
+#import theme 
+theme = "/home/moserboser/.cache/wal/ghosty"
+background-opacity= 1 
+minimum-contrast = 2
+window-theme = ghostty
+# remove gtk-sidebar
+gtk-titlebar = false
+gtk-adwaita = true
+

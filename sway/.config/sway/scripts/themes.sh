@@ -36,8 +36,7 @@ if [ -n "$selected_item" ]; then
   # Check if a valid image file was selected
   if [ -n "$selected_file" ]; then
     # Use wal on the selected file
-    wal -c
-    ~/.local/bin/wal -i "$selected_file" -n
+    ~/.local/bin/wal -i "$selected_file" -n --backend haishoku
     swaybg -i "$selected_file" -m fill
   else
     notify-send "No valid image found in the folder!" "Please select another folder or image."
