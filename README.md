@@ -47,5 +47,10 @@ Otherwise you can clone the repo, change into it and run `stow config-directory-
 
 [Sway interactive Screenshot](https://github.com/moverest/sway-interactive-screenshot.git) is used for screenshots.
 
+## Examples 
+
+![red](screenshots/screenshot_2025-01-01T14:50:15.png)
+![pink](screenshots/screenshot_2025-01-01T14:53:43.png)
+![green](screenshot_2025-01-01T14:53:57.png)
 
 
