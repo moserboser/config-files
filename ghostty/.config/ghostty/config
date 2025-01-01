@@ -22,7 +22,7 @@ bold-is-bright = true
 #import theme 
 theme = "/home/moserboser/.cache/wal/ghosty"
 background-opacity= 1 
-minimum-contrast = 2
+minimum-contrast = 1.3
 window-theme = ghostty
 # remove gtk-sidebar
 gtk-titlebar = false
