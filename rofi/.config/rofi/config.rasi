@@ -2,7 +2,7 @@ configuration {
   display-drun: "Applications:";
   display-window: "Windows:";
   drun-display-format: "{name}";
-  font: "Agave Nerd Font Medium 10";
+  font: "Thunderman Nerd Font 9";
   modi: "drun,window";
 }
 

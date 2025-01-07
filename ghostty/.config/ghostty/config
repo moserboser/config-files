@@ -15,10 +15,12 @@ gtk-single-instance = true
 window-padding-x = 4 
 window-padding-y = 4 
 # fonts
+font-family = "ComicShannsMono Nerd Font"
 font-family = "Agave Nerd Font"
+
 font-size = 14 
 bold-is-bright = true 
-
+selection-background = #ff0000
 #import theme 
 theme = "/home/moserboser/.cache/wal/ghosty"
 background-opacity= 1 
