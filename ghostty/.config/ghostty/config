@@ -4,6 +4,8 @@
 keybind = ctrl+t=new_tab
 keybind = ctrl+w=close_surface
 
+# 
+theme = duskfox 
 # reload configuration
 keybind = ctrl+shift+r=reload_config
 
@@ -22,10 +24,9 @@ font-size = 14
 bold-is-bright = true 
 selection-background = #ff0000
 #import theme 
-theme = "/home/moserboser/.cache/wal/ghosty"
-background-opacity= 1 
+background-opacity= 0.8 
 minimum-contrast = 1.3
-window-theme = ghostty
+gtk-tabs-location = hidden
 # remove gtk-sidebar
 gtk-titlebar = false
 gtk-adwaita = true
