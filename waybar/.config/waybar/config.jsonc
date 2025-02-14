@@ -44,7 +44,7 @@
         "format-charging":  "{capacity}% 󱊦" ,
         "format-plugged": "{capacity}% ",
         "format-alt": "{time} {icon}",
-        // "format-good": "",
+        "format-good": "",
         "format-full": "100% ",
         "format-icons": ["", "", "", "", ""]
     },
@@ -57,25 +57,27 @@
         "format-alt": "{ifname}: {ipaddr}/{cidr}",
         "tooltip-format": "{ifname}: {ipaddr}/{cidr}"
     },
-    "pulseaudio": {
-        "scroll-step": 0,
-        "format": "{icon} {volume}    {format_source}",
-        "format-bluetooth": "{volume}% {icon} {format_source}",
-        "format-bluetooth-muted": " 󰗿  {icon} {format_source}",
-        "format-muted": " {format_source}",
-        "format-source": " {volume}",
-        "format-source-muted": "",
-        "format-icons": {
-            "headphone": "",
-            "hands-free": "󱡏",
-            "headset": "󱡏 ",
-            "phone": "",
-            "portable": "",
-            "car": "",
-            "default": ["", "", ""]
-        },
-        "on-click": "pavucontrol"
+"pulseaudio": {
+    "scroll-step": 5,  
+    "format": "{icon} {volume}% ",
+    "format-bluetooth": "{volume}% {icon} {format_source}",
+    "format-bluetooth-muted": " 󰗿  {icon} {format_source}",
+    "format-muted": "󰝟 {format_source}",
+    "format-source-muted": "",
+    "format-icons": {
+        "headphone": "",
+        "hands-free": "󱡏",
+        "headset": "󱡏",
+        "phone": "",
+        "portable": "",
+        "car": "",
+        "default": ["", "", ""]
     },
+    "on-click": "pavucontrol",
+    "on-click-right": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+    "on-scroll-up": "pactl set-sink-volume @DEFAULT_SINK@ +5%",
+    "on-scroll-down": "pactl set-sink-volume @DEFAULT_SINK@ -5%"
+},
   
     "custom/notification": {
       "tooltip": false,
@@ -102,52 +104,37 @@
             "icon-size": 13,
             "tooltip": false,
             "ignore-list": [
-            "Alacritty",
-            "com.mitchellh.ghostty", 
-            ],
+            "Alacritty"],
             "on-click": "activate",
             "on-click-right": "close",
             "app_ids-mapping": {
                 "gnome-terminal-server": "org.gnome.Terminal"
             }
         },
-  "mpris": {
-	"format": " {player_icon} {dynamic}",
-	"format-paused": " {status_icon} <i>{dynamic}</i>",
-	"player-icons": {
-		"default": "▶",
-		"mpv": "🎵"
-	},
-	"status-icons": {
-		"paused": ""
-	},
-	// "ignored-players": ["firefox"]
+"mpris": {
+    "format": "{player_icon} {dynamic}",
+    "format-paused": "{status_icon} <i>{dynamic}</i>",
+    "player-icons": {
+        "default": "▶",
+        "mpv": "🎵"
+    },
+    "status-icons": {
+        "paused": ""
+    },
+    "dynamic-order": ["title", "position", "length", "artist", "album"],
+    "dynamic-importance-order": ["title", "position", "length", "artist", "album"],
+    "interval": 1,
+    "dynamic-len": 50,
+    "title-len": 25,
+    "artist-len": 20,
+    "album-len": 20,
+    "dynamic-separator": " | ",
+    "truncate-hours": true
 },
-  "cava": {
-	//        "cava_config": "$XDG_CONFIG_HOME/cava/cava.conf",
-	"framerate": 30,
-	"autosens": 1,
-	"bars": 14,
-	"lower_cutoff_freq": 50,
-	"higher_cutoff_freq": 10000,
-	"method": "pipewire",
-	"source": "auto",
-	"stereo": true,
-	"bar_delimiter": 0,
-	"noise_reduction": 0.77,
-	"input_delay": 2,
-        "hide_on_silence": true,
-	"format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█" ],
-	"actions": {
-	    "on-click-right": "mode"
-	}
- },
-
 "disk": {
 	"interval": 30,
 	"format": "{specific_free:0.2f} GB out of {specific_total:0.2f} GB. | ",
 	"unit": "GB"
-	// 0.25 GB out of 2000.00 GB available. Alternatively 241.3MiB out of 1.9TiB available.
 },
 "memory": {
     "interval": 30,
@@ -182,5 +169,5 @@
     "format": " {} S ",
     "on-click": "exec swaymsg 'scratchpad show'",
     "on-click-right": "exec swaymsg 'move scratchpad'"
-},
+}
 }
