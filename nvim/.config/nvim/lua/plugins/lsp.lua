@@ -9,6 +9,7 @@ return {
       clangd = {},
       marksman = {},
       bashls = {},
+      r_language_server = {},
     },
   },
 }
